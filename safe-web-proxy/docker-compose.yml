@@ -1,0 +1,14 @@
+services:
+  web-proxy:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      HOST: 0.0.0.0
+      REQUEST_TIMEOUT_MS: 10000
+      MAX_RESPONSE_BYTES: 10485760
+      MAX_REDIRECTS: 5
+      RATE_LIMIT_WINDOW_MS: 60000
+      RATE_LIMIT_MAX: 30
+    restart: unless-stopped
