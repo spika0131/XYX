@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safe Web Proxy</title>
+  <style>
+    :root { color-scheme: light dark; font: 16px/1.6 system-ui, sans-serif; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #101827; color: #eef3fb; }
+    main { width: min(680px, calc(100% - 40px)); padding: 32px; box-sizing: border-box; border: 1px solid #34445c; border-radius: 16px; background: #182438; }
+    h1 { margin-top: 0; } p { color: #bfcbda; }
+    form { display: flex; gap: 10px; margin: 24px 0; }
+    input { flex: 1; min-width: 0; padding: 12px; border: 1px solid #50627d; border-radius: 8px; font: inherit; }
+    button { padding: 12px 18px; border: 0; border-radius: 8px; background: #64a5ff; color: #08111f; font: inherit; font-weight: 700; cursor: pointer; }
+    small { color: #aab8ca; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Safe Web Proxy</h1>
+    <p>URLを入力すると、公開Webサイトをこのサーバー経由で取得します。</p>
+    <form action="/proxy" method="get">
+      <input type="url" name="url" placeholder="https://example.com/" required maxlength="4096" aria-label="URL">
+      <button type="submit">開く</button>
+    </form>
+    <small>HTTP / HTTPSのみ対応。ローカルネットワーク、認証付きURL、Cookieは扱いません。</small>
+  </main>
+</body>
+</html>
